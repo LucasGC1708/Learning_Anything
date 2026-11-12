@@ -15,7 +15,7 @@ import { buildIndex, inspectBundleFile } from '../server/community/catalog.js'
 
 const folder = path.join(config.root, COMMUNITY_FOLDER)
 
-async function check(files: string[]): Promise<number> {
+async function check(files: string[]): Promise<number> { 
   const targets = files.length ? files : null
   if (!targets) {
     const { index, problems } = await buildIndex(folder)
