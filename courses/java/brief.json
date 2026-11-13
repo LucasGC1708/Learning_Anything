@@ -1,0 +1,14 @@
+{
+  "topic": "Java",
+  "scope": "Estudos do básico ao avançado, com foco em fundamentos da linguagem, orientação a objetos, bibliotecas da plataforma, concorrência, testes e construção de aplicações robustas",
+  "goal": "Aprender programação em Java, entendendo as regras da linguagem e por que cada recurso funciona, para projetar, implementar, testar e evoluir aplicações reais",
+  "level": "mastery",
+  "priorKnowledge": "Já trabalhei com outras linguagens",
+  "hoursPerWeek": 6,
+  "deadlineWeeks": 24,
+  "format": "more_practice",
+  "context": "Sou desenvolvedor júnior",
+  "hasComputer": true,
+  "readsEnglish": false,
+  "language": "pt-BR"
+}

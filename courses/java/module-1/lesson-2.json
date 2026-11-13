@@ -1,0 +1,35 @@
+{
+  "introduction": "Ao final desta aula, você consegue escolher tipos para dados simples, distinguir valores primitivos de referências e prever o resultado de conversões. A organização segue os fundamentos de linguagem do dev.java, em especial as páginas sobre variáveis, tipos primitivos, operadores e expressões.",
+  "sections": [
+    {
+      "title": "Valor primitivo e referência",
+      "markdown": "Java separa tipos primitivos, como int, double e boolean, de tipos de referência, como String e classes criadas por você. Uma variável primitiva guarda um valor. Uma variável de referência guarda uma referência para um objeto, ou pode estar apontando para null.\n\nEssa diferença explica por que atribuir um int copia seu valor, enquanto atribuir uma referência faz duas variáveis apontarem para o mesmo objeto. Não use null para representar qualquer estado: ele significa ausência de uma referência e pode causar uma exceção quando for desreferenciado.",
+      "question": {"type":"multiple_choice","id":"t2-primitive-reference","skill":"m1-types-values","bloom":"understand","difficulty":1,"prompt":"Qual afirmação descreve melhor uma variável de tipo primitivo?","hints":["Compare o que a variável guarda em um int com o que uma String representa."],"choices":[{"text":"Ela sempre guarda uma referência para um objeto.","explanation":"Essa é a ideia de um tipo de referência, não de um primitivo."},{"text":"Ela guarda diretamente um valor do tipo definido.","explanation":"Correto: um primitivo como int guarda diretamente um valor inteiro."},{"text":"Ela só pode receber o valor null.","explanation":"null representa ausência de referência e não é um valor válido para tipos primitivos."}],"correct":1,"solution":"Tipos primitivos guardam diretamente valores como números, caracteres ou booleanos; referências apontam para objetos."}
+    },
+    {
+      "title": "Conversões e divisão",
+      "markdown": "O compilador permite algumas conversões automáticas quando não há perda esperada, como usar um int em uma expressão double. O caminho inverso exige uma conversão explícita e pode descartar informação.\n\nA divisão também depende dos tipos dos operandos. Em 5 / 2, os dois operandos são inteiros, então o resultado é 2. Em 5.0 / 2, pelo menos um operando é double, então o resultado é 2.5. Escolha o tipo antes da conta, não depois de obter um resultado já truncado.",
+      "question": {"type":"numeric","id":"t2-integer-division","skill":"m1-types-values","bloom":"apply","difficulty":1,"prompt":"Qual é o resultado numérico de 7 / 2 quando os dois operandos são do tipo int?","hints":["A divisão inteira descarta a parte fracionária."],"answer":3,"tolerance":0,"unit":"","solution":"Como os dois operandos são int, a divisão é inteira: 7 dividido por 2 resulta em 3, descartando a parte fracionária."}
+    },
+    {
+      "title": "Inicialização, escopo e leitura",
+      "markdown": "Uma variável local precisa receber um valor antes de ser lida. Inicializar na declaração torna a intenção visível e reduz caminhos em que o programa usa um estado não definido pelo código. O escopo de uma variável é a região em que seu nome pode ser usado; um bloco entre chaves pode criar um escopo menor.\n\nPara entrada simples, Scanner pode ler valores do terminal. Em código de produção, pense também em formato, erro de conversão e origem dos dados. A ferramenta não valida automaticamente se o valor faz sentido para o domínio.",
+      "question": {"type":"true_false","id":"t2-local-init","skill":"m1-types-values","bloom":"understand","difficulty":1,"prompt":"Verdadeiro ou falso: uma variável local pode ser lida em Java antes de receber um valor, porque a JVM sempre escolhe zero para ela.","hints":["Diferencie uma variável local de um campo de objeto."],"correct":false,"solution":"Falso. O compilador exige que uma variável local esteja definitivamente atribuída antes da leitura; não se deve depender de um valor escolhido pelo ambiente."}
+    },
+    {
+      "title": "Operadores como expressões",
+      "markdown": "Uma expressão produz um valor. Operadores aritméticos calculam, operadores relacionais comparam e operadores lógicos combinam condições. A precedência influencia a leitura, mas parênteses tornam a intenção explícita.\n\n```java\nint quantidade = 3;\ndouble preco = 12.50;\ndouble total = quantidade * preco;\nboolean freteGratis = total >= 30.0;\n```\n\nO código acima separa quantidade, preço, total e decisão. Essa separação facilita testar cada regra e evita esconder uma conversão ou uma comparação dentro de uma expressão longa.",
+      "question": {"type":"short_answer","id":"t2-boolean-expression","skill":"m1-types-values","bloom":"apply","difficulty":2,"prompt":"No código da seção, qual é o valor de freteGratis? Responda com true ou false.","hints":["Calcule primeiro quantidade vezes preço."],"accepted":["true"],"solution":"A quantidade é 3 e o preço é 12,50, então o total é 37,50. Como 37,50 é maior ou igual a 30, freteGratis vale true."}
+    }
+  ],
+  "workedExample": {
+    "prompt":"Preveja a saída e o tipo efetivo das contas neste trecho: int a = 5; int b = 2; double c = 5; System.out.println(a / b); System.out.println(c / b);.",
+    "steps":["Separe as duas expressões: a / b usa dois operandos int; c / b usa um double e um int.","Na primeira expressão, a divisão é inteira. O resultado é 2, porque a parte depois da vírgula é descartada.","Na segunda expressão, o int b participa de uma operação com double. Ele é convertido para double para a conta.","A saída é 2 na primeira linha e 2.5 na segunda. A diferença vem dos tipos dos operandos, não do comando println."]
+  },
+  "summary":[
+    "Tipos primitivos guardam valores; tipos de referência apontam para objetos e podem representar ausência com null.",
+    "Conversões explícitas podem perder informação, e divisão inteira descarta a parte fracionária.",
+    "Variáveis locais devem ser inicializadas antes da leitura; o escopo limita onde o nome existe.",
+    "Separar valores e condições em expressões pequenas torna o programa mais fácil de testar e explicar."
+  ]
+}

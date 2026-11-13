@@ -1,6 +1,6 @@
 /**
  * The local voice from the command line.
- *   npm run voice:install                         installs the Kokoro engine in data/voice/ (once, ~400 MB)
+ *   npm run voice:install                          installs the Kokoro engine in data/voice/ (once, ~400 MB)
  *   npm run voice:test [-- "phrase"] [--play] [--language en|pt-BR]   speaks a phrase with the chosen engine
  */
 

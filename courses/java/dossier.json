@@ -1,0 +1,41 @@
+{
+  "summary": "As fontes convergem em uma progressão que começa pela execução e pelos tipos, passa rapidamente para métodos e orientação a objetos, e só depois introduz coleções, exceções, entrada e saída, testes, concorrência e modularidade. O curso da Universidade de Helsinki se destaca pela quantidade de exercícios testados e pelo uso de ferramentas reais desde o início. A documentação atual do dev.java organiza a linguagem em fundamentos, orientação a objetos, genéricos, lambdas, pattern matching, anotações e exceções, além de tratar coleções, streams e I/O como APIs centrais. A especificação da linguagem serve como referência de precisão para regras de tipos, conversões, classes e execução; não deve ser usada como tutorial principal.",
+  "bullets": [
+    {"title":"Execução, compilação e tipos","description":"Como o código-fonte é compilado para bytecode, como a JVM participa da execução e como tipos primitivos e de referência determinam operações válidas.","prerequisites":[]},
+    {"title":"Controle de fluxo e métodos","description":"Expressões, decisões, repetições, escopo, parâmetros, retorno, sobrecarga e decomposição de problemas em métodos pequenos.","prerequisites":["Execução, compilação e tipos"]},
+    {"title":"Classes e encapsulamento","description":"Estado, comportamento, construtores, modificadores de acesso, invariantes e a diferença entre classe, objeto e referência.","prerequisites":["Controle de fluxo e métodos"]},
+    {"title":"Herança, interfaces e polimorfismo","description":"Subtipagem, composição, contratos, sobrescrita, classes abstratas, interfaces e escolha entre herança e composição.","prerequisites":["Classes e encapsulamento"]},
+    {"title":"Coleções, generics e igualdade","description":"List, Set, Map, filas, iteração, tipos parametrizados, equals, hashCode e comparadores para trabalhar com dados em memória.","prerequisites":["Classes e encapsulamento","Herança, interfaces e polimorfismo"]},
+    {"title":"Exceções e código defensivo","description":"Exceções verificadas e não verificadas, propagação, tratamento, criação de tipos próprios e validação de contratos sem esconder falhas.","prerequisites":["Métodos","Classes e encapsulamento"]},
+    {"title":"Lambdas, streams e Optional","description":"Funções como valores, operações intermediárias e terminais, collectors, composição e uso criterioso de Optional.","prerequisites":["Coleções, generics e igualdade"]},
+    {"title":"I/O, arquivos e serialização de dados","description":"Paths, arquivos, streams de caracteres e bytes, buffers, recursos, formatos textuais e limites da serialização nativa.","prerequisites":["Exceções e código defensivo","Coleções, generics e igualdade"]},
+    {"title":"Testes automatizados e qualidade","description":"Testes unitários, testes de contrato, parametrização, doubles, propriedades, refatoração segura e leitura de falhas.","prerequisites":["Métodos","Exceções e código defensivo"]},
+    {"title":"Concorrência e memória","description":"Threads, executors, tarefas, sincronização, visibilidade, atomicidade, imutabilidade e prevenção de condições de corrida.","prerequisites":["Classes e encapsulamento","Coleções, generics e igualdade"]},
+    {"title":"Módulos, APIs e engenharia de projeto","description":"Pacotes, módulos, dependências, documentação, logging, configuração, APIs públicas e organização sustentável de aplicações.","prerequisites":["I/O, arquivos e serialização de dados","Testes automatizados e qualidade"]},
+    {"title":"Projeto integrado e decisões avançadas","description":"Projeto de uma aplicação Java modular, testada e concorrente, com decisões justificadas sobre domínio, dados, erros, desempenho e manutenção.","prerequisites":["Módulos, APIs e engenharia de projeto","Concorrência e memória"]}
+  ],
+  "commonMistakes": [
+    "Confundir uma variável de tipo primitivo com uma variável de referência e esperar que a atribuição copie o objeto.",
+    "Usar == para comparar o conteúdo de objetos, especialmente String, em vez de equals.",
+    "Criar hierarquias de herança apenas para reutilizar código quando composição expressaria melhor o domínio.",
+    "Usar tipos crus ou curingas genéricos sem entender o que o compilador consegue garantir.",
+    "Capturar Exception de forma ampla, ignorar a causa e continuar como se o programa estivesse correto.",
+    "Usar streams só para parecer funcional, tornando o código menos legível e dificultando a depuração.",
+    "Compartilhar estado mutável entre threads sem definir a regra de sincronização.",
+    "Confundir teste que verifica comportamento com teste que repete a implementação interna."
+  ],
+  "possibleProjects": [
+    "Aplicação de linha de comando para controlar uma biblioteca pessoal, com busca, empréstimo, persistência em arquivo e testes.",
+    "Processador de arquivos CSV que valida registros, produz um relatório de erros e gera estatísticas com streams.",
+    "Servidor concorrente simples que processa tarefas de uma fila, registra eventos e encerra de forma previsível.",
+    "Aplicação integrada modular para organizar tarefas, com domínio encapsulado, persistência, testes e documentação de decisões."
+  ],
+  "references": [
+    {"title":"Getting to Know the Language","author":"Oracle","institution":"Oracle / dev.java","type":"documentation","url":"https://dev.java/learn/language/","license":"unknown","reason":"Organiza a linguagem atual em fundamentos, orientação a objetos, generics, lambdas, pattern matching, anotações e exceções."},
+    {"title":"Java Language Basics","author":"Oracle","institution":"Oracle / dev.java","type":"documentation","url":"https://dev.java/learn/language/constructs/basics/","license":"unknown","reason":"Apresenta variáveis, tipos primitivos, arrays, operadores, expressões, blocos e controle de fluxo em páginas curtas."},
+    {"title":"Collections and Streams","author":"Oracle","institution":"Oracle / dev.java","type":"documentation","url":"https://dev.java/learn/api/collections-and-streams/","license":"unknown","reason":"É a referência oficial atual para Collections Framework, mapas, Stream API e collectors."},
+    {"title":"The Java I/O API","author":"Oracle","institution":"Oracle / dev.java","type":"documentation","url":"https://dev.java/learn/api/io/java-io/","license":"unknown","reason":"Cobre conceitos de I/O, caminhos, sistema de arquivos, leitura e escrita de dados."},
+    {"title":"Java Programming","author":"Arto Hellas, Matti Luukkainen e colaboradores","institution":"University of Helsinki / Agile Education Research","type":"course","url":"https://java-programming.mooc.fi/","license":"cc-by-nc-sa","reason":"Fornece uma sequência extensa de exercícios práticos, testes automáticos e uso de ferramentas reais, do introdutório ao avançado."},
+    {"title":"The Java Language Specification, Java SE 27 Edition","author":"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley, Daniel Smith e Gavin Bierman","institution":"OpenJDK","type":"documentation","url":"https://cr.openjdk.org/~dlsmith/jep401/jep401-20260715/specs/jls/","license":"unknown","reason":"É a fonte de precisão para tipos, conversões, classes, interfaces, expressões, exceções e modelo de memória; será consultada quando a regra importar."}
+  ]
+}

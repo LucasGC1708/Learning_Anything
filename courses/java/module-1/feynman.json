@@ -1,0 +1,21 @@
+{
+  "topic":"Como um programa Java é executado e como organizar sua solução em tipos, fluxo e métodos",
+  "request":"Explique para uma pessoa que já programou em outra linguagem como um arquivo Java chega à JVM, como tipos influenciam as operações e como você transforma uma regra em métodos e controle de fluxo. Dê um exemplo pequeno e diga como investigaria um erro.",
+  "opening":"Oi, sou a Ana. Você já programa, mas quer entender o que muda quando o código passa pela JVM. Pode me explicar o caminho de um programa Java e depois mostrar como você organiza uma regra?",
+  "keyPoints":[
+    {"id":"f1-compilation","idea":"O código-fonte Java é compilado para bytecode, e a JVM carrega e executa esse bytecode; compilação e execução são etapas diferentes.","cues":["código fonte","bytecode","arquivo class","JVM","compilar antes de executar"],"question":"O que precisa acontecer entre escrever o arquivo e a JVM executar o programa?"},
+    {"id":"f1-types","idea":"Tipos primitivos guardam valores diretamente, referências apontam para objetos, e os tipos dos operandos influenciam conversões e divisão.","cues":["tipo primitivo","referência para objeto","divisão inteira","double","null"],"question":"Por que duas divisões que parecem iguais podem produzir resultados diferentes?"},
+    {"id":"f1-control","idea":"if e switch escolhem caminhos, for e while repetem conforme uma regra, e um laço precisa ter atualização e condição de término.","cues":["if e else","switch","for","while","condição de parada"],"question":"Como você decide entre uma escolha e uma repetição ao ler um enunciado?"},
+    {"id":"f1-methods","idea":"Um método nomeia uma responsabilidade e define entradas, saída, pré-condições e efeitos para que o chamador não dependa dos passos internos.","cues":["responsabilidade","parâmetros","retorno","pré condição","contrato do método"],"question":"O que um chamador precisa saber sobre um método sem conhecer sua implementação?"},
+    {"id":"f1-debug","idea":"A investigação começa classificando a etapa: compilação, execução, lógica ou ambiente; depois compara o comportamento com um caso pequeno.","cues":["erro de compilação","exceção em execução","erro de lógica","mensagem do compilador","caso pequeno"],"question":"Qual é sua primeira pergunta quando o programa não apresenta o resultado esperado?"}
+  ],
+  "commonMistakes":[
+    {"error":"Dizer que a JVM executa diretamente o texto do arquivo Java.","correction":"O texto é compilado para bytecode; a JVM carrega e executa o bytecode."},
+    {"error":"Tratar toda variável como se guardasse um objeto independente.","correction":"Primitivos guardam valores; atribuições de referências podem fazer duas variáveis apontarem para o mesmo objeto."},
+    {"error":"Usar divisão inteira esperando uma parte decimal.","correction":"Quando os operandos são int, a parte fracionária é descartada; um double deve participar da operação."},
+    {"error":"Criar um laço sem explicar como a condição pode ficar falsa.","correction":"O laço precisa atualizar um estado que permita alcançar uma condição de término."},
+    {"error":"Colocar leitura, cálculo, arquivo e apresentação no mesmo método.","correction":"Separe responsabilidades em métodos com contratos claros e efeitos visíveis."}
+  ],
+  "questions":["Dê um exemplo de erro que o compilador encontra antes da JVM executar o programa.","Como você testaria uma média quando a quantidade recebida é zero?","Quando uma composição de métodos torna uma regra mais fácil de testar?","Qual diferença você espera entre um resultado errado e uma exceção?"],
+  "skills":["m1-execution-model","m1-types-values","m1-control-flow","m1-methods","m1-debug-errors"]
+}
